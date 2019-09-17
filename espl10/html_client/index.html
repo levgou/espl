@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+  <title>Title eltiT</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <link
+    href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+    rel="stylesheet"
+    id="bootstrap-css"
+  />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css"
+    rel="stylesheet"
+  />
+
+  <link href="styles.css" rel="stylesheet" />
+
+  <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" src="hommer.png" class="hommer" />
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="#">Preface <span class="sr-only">(current)</span></a>
+          </li>
+          <li>
+            <a href="#gallery"
+              >Gallery <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <body>
+    <div class="container">
+      <div class="text-center">
+        <h1 class="text-simpson">
+          Simpson <span class="text-citations">citations</span>
+        </h1>
+      </div>
+
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">If something is hard to do then it not worth doing</p>
+        <footer class="blockquote-footer">
+          Hommer simpson <cite title="Source Title">At some point in life</cite>
+        </footer>
+      </blockquote>
+
+      <a name="gallery"></a>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-8 zoomer">
+          <img class="img-responsive" src="" />
+          <div class="text-block"></div>
+        </div>
+
+        <div class="col-xs-6 col-md-4 zoomer">
+          <img class="img-responsive" src="" />
+          <div class="text-block"></div>
+        </div>
+        <div class="col-xs-6 col-md-4 zoomer">
+          <img class="img-responsive" src="" />
+          <div class="text-block"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-8 right_thingy zoomer">
+          <img class="img-responsive" src="" />
+          <div class="text-block"></div>
+        </div>
+
+        <div class="col-xs-6 col-sm-4 zoomer">
+          <img class="img-responsive" src="" />
+          <div class="text-block"></div>
+        </div>
+        <div class="col-xs-6 col-sm-4 zoomer">
+          <img class="img-responsive" src="" />
+          <div class="text-block"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-8 zoomer">
+          <img class="img-responsive" src="" />
+          <div class="text-block"></div>
+        </div>
+
+        <div class="col-xs-6 col-md-4 zoomer">
+          <img class="img-responsive" src="" />
+          <div class="text-block"></div>
+        </div>
+        <div class="col-xs-6 col-md-4 zoomer">
+          <img class="img-responsive" src="" />
+          <div class="text-block"></div>
+        </div>
+      </div>
+    </div>
+
+    <a name="contact"></a>
+
+    <div class="container contact-form">
+      <div class="contact-image"><img src="donnut.png" alt="Donnut" /></div>
+      <form
+        action="http://localhost:3000/sendmail"
+        method="post"
+        onsubmit="return validateForm()"
+      >
+        <h3>Drop Us a Message</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input
+                id="nameForm"
+                type="text"
+                name="txtName"
+                class="form-control"
+                placeholder="Your Name *"
+                value=""
+                oninput="unredify('nameForm')"
+              />
+            </div>
+            <div class="form-group extra-bottom-margin">
+              <input
+                id="mailForm"
+                type="text"
+                name="txtEmail"
+                class="form-control"
+                placeholder="Your Email *"
+                value=""
+                oninput="unredify('mailForm')"
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                type="submit"
+                name="btnSubmit"
+                class="btnContact"
+                value="Send Message"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <textarea
+                id="msgForm"
+                name="txtMsg"
+                class="form-control"
+                placeholder="Your Message *"
+                style="width: 100%; height: 150px;"
+                oninput="unredify('msgForm')"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- The Close Button -->
+      <span class="close">&times;</span>
+
+      <!-- Modal Content (The Image) -->
+      <img class="modal-content" id="img01" />
+
+      <!-- Modal Caption (Image Text) -->
+      <div id="caption"></div>
+    </div>
+  </body>
+  <script>
+    var mailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    function unredify(formName) {
+        document.getElementById(formName).style.backgroundColor = "white";
+    }
+
+    function validateForm() {
+        let nameVal = document.getElementById("nameForm").value;
+        let mailVal = document.getElementById("mailForm").value;
+        let msgVal = document.getElementById("msgForm").value;
+
+        let retStatus = true;
+
+        if (nameVal === "") {
+            retStatus = false;
+            document.getElementById("nameForm").style.backgroundColor = "#eba0a0";
+        }
+
+        if (mailVal === "" || !mailRegex.test(String(mailVal).toLowerCase())) {
+            document.getElementById("mailForm").style.backgroundColor = "#eba0a0";
+            retStatus = false;
+        }
+
+        if (msgVal === "") {
+            retStatus = false;
+            document.getElementById("msgForm").style.backgroundColor = "#eba0a0";
+        }
+
+        return retStatus;
+    }
+
+    async function loadJSON(callback) {
+        
+        const reposnse = await fetch('https://raw.githubusercontent.com/limhenry/earthview/master/earthview.json')
+        const json = await reposnse.json();
+        callback(json);
+    }
+
+    function populateImages(earthImgs) {
+
+        let imgs = Array.from(document.getElementsByClassName("img-responsive"));
+        imgs.forEach(function (img) {
+            let randImgObj = earthImgs[Math.floor(Math.random() * earthImgs.length)];
+            img.src = randImgObj.image;
+        });
+    }
+
+    function populateQuotes(quotes) {
+
+        let textBoxes = Array.from(document.getElementsByClassName("text-block"));
+        let i;
+        for (i = 0; i < textBoxes.length; i++) {
+            textBoxes[i].innerHTML = "<h4>" + quotes[i].quote + "<br>" + quotes[i].character + "</h4>"
+        }
+    }
+
+    function getQuotes(quotesHandler) {
+        let request = new XMLHttpRequest();
+
+        request.open('GET', 'https://thesimpsonsquoteapi.glitch.me/quotes?count=9\n', true);
+        request.onload = function () {
+            let data = JSON.parse(this.response);
+            quotesHandler(data);
+        };
+        request.send();
+    }
+
+    window.onload = function () {
+        loadJSON(populateImages);
+        getQuotes(populateQuotes);
+
+        // Get the modal
+        let modal = document.getElementById('myModal');
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        let imgs = Array.from(document.getElementsByClassName('zoomer'));
+        let modalImg = document.getElementById("img01");
+        let captionText = document.getElementById("caption");
+
+        function handleClick() {
+            modal.style.display = "block";
+            modalImg.src = this.children[0].src;
+            captionText.innerHTML = this.children[1].innerHTML;
+        }
+
+        for (let i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = handleClick
+        }
+
+        // Get the <span> element that closes the modal
+        let span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+    };
+
+    document.onkeydown = function (evt) {
+        evt = evt || window.event;
+        let isEscape = false;
+        if ("key" in evt) {
+            isEscape = (evt.key == "Escape" || evt.key == "Esc");
+        } else {
+            isEscape = (evt.keyCode == 27);
+        }
+        if (isEscape) {
+            let modal = document.getElementById('myModal');
+            modal.style.display = "none";
+        }
+    };
+  </script>
+</html>
