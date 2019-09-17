@@ -1,1 +1,2 @@
-espl10
+# Internet Technologies
+In this lab you are going to build a homepage or some other web page using HTML, CSS, javascript, NODEJS, and EXPRESS. The page will be hosted on the departments servers (apache server), and can be accessed via the following link: http://www.cs.bgu.ac.il/~levgou

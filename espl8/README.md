@@ -1,1 +1,2 @@
-espl8
+# Lab 8: ELF
+This lab is to help you understand how your executable/relocatable files look like, and what information they contain. We will parse the ELF file and extract useful information from it. In particular, we will access the data in the section header table, and in the symbol table. We will also learn to use the `mmap` system call.
